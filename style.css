@@ -1,0 +1,78 @@
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #efeff4;
+}
+.segmented-control {
+	display: flex;
+	flex-direction: row;
+
+	width: 343px;
+	height: 28px;
+	margin-left: auto;
+	margin-right: auto;
+
+	border: 1px solid #007AFF;
+	border-radius: 4px;
+	background-color: #FFF;
+
+	user-select: none;
+	text-align:justify;
+	-webkit-user-select: none;
+	-webkit-tap-highlight-color: #0000;
+}
+.segmented-control input[type="radio"] {
+	display: none;
+}
+.segmented-control label {
+	flex: 1 1 auto;
+}
+.segmented-control label div {
+	height: 28px;
+
+	border-left-width: 0.5px;
+	border-top-width: 0;
+	border-right-width: 0.5px;
+	border-bottom-width: 0;
+	border-color: #007AFF;
+	border-style: solid;
+	outline: none;
+
+	line-height: 28px;
+	font-size: 13px;
+	text-align: center;
+	color: #007AFF;
+}
+.segmented-control label:first-of-type div, .segmented-control label:first-of-type div:link {
+	border-left-style: none;
+	border-radius: 3px 0 0 3px;
+}
+.segmented-control label:last-of-type div, .segmented-control label:last-of-type div:link {
+	border-right-style: none;
+	border-radius: 0 3px 3px 0;
+}
+.segmented-control label input[type="radio"]:checked + div {
+	animation: 0.125s linear 0s 1 both highlight;
+	background-color: #007AFF;
+	color: #FFF;
+}
+.segmented-control label div:hover, .segmented-control label div:active {
+	animation: 0.125s linear 0s 1 both hover;
+	background-color: #d6eaff;
+}
+
+@keyframes highlight {
+	from {
+		color: #007AFF;
+	} to {
+		background-color: #007AFF;
+		color: #FFF;
+	}
+}
+
+@keyframes hover {
+	from {
+		background-color: #FFF;
+	} to {
+		background-color: #d6eaff;
+	}
+}
