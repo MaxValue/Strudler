@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title id="title">Strudler Showcase</title>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="user-scalable=no, width=device-width" />
+		<link rel="manifest" href="manifest.webmanifest" />
+
+		<meta name="theme-color" content="#FFF">
+		<meta name="apple-mobile-web-app-title" content="Strudler Showcase" />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body ontouchstart="">
+		<div id="viewport">
+			<div class="UIKit-UISegmentedControl" onchange="doStuff()"
+				><label
+					><input type="radio" name="sort-order" value="map" checked=""
+					><div>Map</div
+				></label
+				><label
+					><input type="radio" name="sort-order" value="transit"
+					><div>Transit</div
+				></label
+				><label
+					><input type="radio" name="sort-order" value="satellite"
+					><div>Satellite</div
+				></label
+			></div>
+			<div class="table-grouped">
+				<header>Navigation Voice Volume</header>
+				<section>
+					<div class="table-cell">
+						No Voice
+						<input type="checkbox" name="checktest">
+					</div>
+					<div class="table-cell">
+						Low Volume
+					</div>
+					<div class="table-cell">
+						Normal Volume
+					</div>
+					<div class="table-cell">
+						Loud Volume
+					</div>
+				</section>
+				<footer>Play media at a lower volume during navigation prompts.</footer>
+			</div>
+		</div>
+	</body>
+</html>
