@@ -1,0 +1,28 @@
+{
+	"folders":
+	[
+		{
+			"file_exclude_patterns":
+			[
+				"*.zip"
+			],
+			"folder_exclude_patterns":
+			[
+				"__pycache__",
+				"venv",
+				"*.zip"
+			],
+			"name": "Project",
+			"path": "."
+		},
+		{
+			"name": "Apple Style Templates",
+			"path": "/home/max/Documents/Data/Private/Projects/_Apple Styles/Apple Design Ressources/iOS 12 Sketch/UI Elements + Design Templates + Guides/UIElements+DesignTemplates+Guides-iPhone8",
+			"file_exclude_patterns":
+			[
+				"*.zip",
+				"._*"
+			],
+		}
+	]
+}
