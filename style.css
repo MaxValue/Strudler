@@ -28,6 +28,11 @@
 	/* UISegmentedControl */
 	--UIKit-UISegmentedControl-tintColor: var(--accentColor);
 
+	/* UITabBar */
+	--UIKit-UITabBar-tintColor: var(--accentColor);
+	--UIKit-UITabBar-inactiveColor: #A1A1A1;
+	--UIKit-UITabBar-barTintColor: #F7F7F7;
+
 	/* UISwitch */
 	--UIKit-UISwitch-onTintColor: var(--SystemGreen);
 	--UIKit-UISwitch-tintColor: var(--SystemLightGrayColor);
@@ -285,4 +290,68 @@ input[type="search"]:link,
 	font-size:13px;
 	line-height: 13px;
 	color: var(--SystemGrayColor);
+}
+
+#tabs {
+	display: flex;
+
+	width: 100%;
+	height: 49px;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+
+	border-top: 0.5px solid #0004;
+	background-color: var(--UIKit-UITabBar-barTintColor);
+
+	align-items: center;
+	justify-content: space-around;
+	overflow: hidden;
+	user-select: none;
+	-webkit-tap-highlight-color: #0000;
+}
+#tabs label {
+	flex: 1;
+
+	display: flex;
+
+	height: 49px;
+
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#tabs label input {
+	outline: none;
+	display: none;
+}
+#tabs label div {
+	--src: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M6,8.8 9.71,11.5 8.29,7.14 12,4.5H7.45L6,0 4.55,4.5H0L3.71,7.14 2.29,11.5Z"/></svg>');
+
+	display: block;
+
+	margin: 8px 0px;
+
+	height: 22px;
+	width: 22px;
+
+	background-color: var(--UIKit-UITabBar-inactiveColor);
+
+	mask-image: var(--src);
+	-webkit-mask-image: var(--src);
+	mask-size: contain;
+	-webkit-mask-size: contain;
+}
+#tabs label span {
+	font-size: 9px;
+	color: var(--UIKit-UITabBar-inactiveColor);
+}
+
+#tabs label input:checked + div {
+	background-color: var(--UIKit-UITabBar-tintColor);
+}
+#tabs label input:checked ~ span {
+	color: var(--UIKit-UITabBar-tintColor);
 }
