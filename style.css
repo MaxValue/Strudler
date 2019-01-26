@@ -23,9 +23,10 @@
 
 	/* Default Colors */
 	--backgroundColor: var(--SystemExtraLightGrayColor);
+	--accentColor: var(--SystemBlue);
 
 	/* UISegmentedControl */
-	--UIKit-UISegmentedControl-tintColor: var(--SystemBlue);
+	--UIKit-UISegmentedControl-tintColor: var(--accentColor);
 
 	/* UISwitch */
 	--UIKit-UISwitch-onTintColor: var(--SystemGreen);
