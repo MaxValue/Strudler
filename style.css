@@ -32,6 +32,9 @@
 	--UIKit-UISwitch-tintColor: var(--SystemLightGrayColor);
 	--UIKit-UISwitch-thumbTintColor: var(--SystemWhiteColor);
 }
+* {
+	overscroll-behavior: none;
+}
 body {
 	font-family: system-ui, 'Roboto', sans-serif;
 	background-color: var(--backgroundColor);
