@@ -18,11 +18,11 @@
 	--SystemMidGrayColor: #C7C7CC;
 	--SystemGrayColor: #8E8E93;
 	--SystemBlackColor: #000000;
-	--SystemExtraLightGrayTintColor: rgba(10,10,120,0.05);
-	--SystemLightGrayTintColor: rgba(25,25,100,0.07);
-	--SystemLightMidGrayTintColor: rgba(25,25,100,0.18);
-	--SystemMidGrayTintColor: rgba(0,0,25,0.22);
-	--SystemGrayTintColor: 	rgba(4,4,15,0.45);
+	--SystemExtraLightGrayTintColor: #0A0A780D; /* rgba(10,10,120,0.05); */
+	--SystemLightGrayTintColor: #19196412; /* rgba(25,25,100,0.07); */
+	--SystemLightMidGrayTintColor: #1919642E; /* rgba(25,25,100,0.18); */
+	--SystemMidGrayTintColor: #00001938; /* rgba(0,0,25,0.22); */
+	--SystemGrayTintColor:	#04040F73; /* rgba(4,4,15,0.45); */
 
 	/* Default Colors */
 	--backgroundColor: var(--SystemExtraLightGrayColor);
