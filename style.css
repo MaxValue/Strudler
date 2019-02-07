@@ -1,4 +1,7 @@
 :root {
+	/* Timing Functions */
+	--easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
 	/* System Colors */
 	--SystemRed: #FF3B30;
 	--SystemOrange: #FF9500;
@@ -37,6 +40,7 @@
 	--UIKit-UISwitch-onTintColor: var(--SystemGreen);
 	--UIKit-UISwitch-tintColor: var(--SystemLightGrayColor);
 	--UIKit-UISwitch-thumbTintColor: var(--SystemWhiteColor);
+	--UIKit-UISwitch-timing: var(--easeOutBack);
 }
 * {
 	overscroll-behavior: none;
@@ -111,17 +115,18 @@ input[type="checkbox"], input[type="checkbox"]:link {
 	appearance: none;
 	display: inline-block;
 
-	margin: 0 1em 0 0;
+	margin: 0;
 
 	/* 19px+30px +2width             29px  height  */
 	width: 51px;
 	height: 31px;
 
+	transition: box-shadow 0.25s;
+
 	outline: none;
 
-	box-shadow: inset 0 0 0 0px var(--UIKit-UISwitch-tintColor);
+	box-shadow: inset 0 0 0 2px var(--UIKit-UISwitch-tintColor);
 
-	border: 2px solid var(--UIKit-UISwitch-tintColor);
 	border-radius: 31px;
 
 	background-color: var(--SystemWhiteColor);
@@ -131,38 +136,27 @@ input[type="checkbox"], input[type="checkbox"]:link {
 	-webkit-tap-highlight-color: #0000;
 }
 input[type="checkbox"]:active,
-input[type="checkbox"]:focus,
-input[type="checkbox"]:hover,
-.UIKit-UISwitch:active,
-.UIKit-UISwitch:focus,
-.UIKit-UISwitch:hover {
+.UIKit-UISwitch:active {
 	box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-tintColor);
-	transition: box-shadow 0.5s 0.25s;
+	transition: box-shadow 0.25s 0.5s;
 }
 input[type="checkbox"]:checked,
 .UIKit-UISwitch:checked {
-	border: none;
-
-	background-color: var(--UIKit-UISwitch-onTintColor);
-}
-input[type="checkbox"]:active:checked,
-input[type="checkbox"]:focus:checked,
-input[type="checkbox"]:hover:checked,
-.UIKit-UISwitch:active:checked,
-.UIKit-UISwitch:focus:checked,
-.UIKit-UISwitch:hover:checked {
-	box-shadow: inset 0 0 0 0px var(--UIKit-UISwitch-tintColor);
+	box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-onTintColor);
+	transition: box-shadow 0.25s;
 }
 input[type="checkbox"]::after,
 .UIKit-UISwitch::after {
 	display: inline-block;
 
 	position: relative;
-	/* top: -0.5px; */
-	top: -0.7px;
+	top: 1.25px;
+	left: 1.5px;
 
 	width: 27.5px;
 	height: 27.5px;
+
+	transition: width 0.25s var(--UIKit-UISwitch-timing), left 0.25s var(--UIKit-UISwitch-timing);
 
 	border: 0.5px solid rgba(0,0,0,0.04);
 	border-radius: 13.75px;
@@ -179,29 +173,21 @@ input[type="checkbox"]::after,
 	-webkit-tap-highlight-color: #0000;
 }
 input[type="checkbox"]:active::after,
-input[type="checkbox"]:focus::after,
-input[type="checkbox"]:hover::after,
-.UIKit-UISwitch:active::after,
-.UIKit-UISwitch:focus::after,
-.UIKit-UISwitch:hover::after {
+.UIKit-UISwitch:active::after {
 	width: 33px;
-	transition: width 0.25s 0.25s;
+	transition: width 0.25s 0.5s;
 }
 input[type="checkbox"]:checked::after,
 .UIKit-UISwitch:checked::after {
-	/* top: 1.5px; */
-	top: 1.25px;
 	left: 21px;
+	/* transition: width 0.25s, left 0.25s; */
+	transition: width 0.25s var(--UIKit-UISwitch-timing), left 0.25s var(--UIKit-UISwitch-timing);
 }
 input[type="checkbox"]:active:checked::after,
-input[type="checkbox"]:focus:checked::after,
-input[type="checkbox"]:hover:checked::after,
-.UIKit-UISwitch:active:checked::after,
-.UIKit-UISwitch:focus:checked::after,
-.UIKit-UISwitch:hover:checked::after {
+.UIKit-UISwitch:active:checked::after {
 	width: 33px;
 	left: 15.5px;
-	transition: width 0.25s 0.25s, left 0.25s 0.25s;
+	transition: width 0.25s 0.5s, left 0.25s 0.5s;
 }
 input[type="search"],
 input[type="search"]:link,
