@@ -110,7 +110,7 @@ body {
 	transition: background-color 0.125s;
 	/* animation: 0.125s linear 0s 1 both hover; */
 }
-input[type="checkbox"], input[type="checkbox"]:link {
+.UIKit-UISwitch, .UIKit-UISwitch:link {
 	-webkit-appearance:  none;
 	appearance: none;
 	display: inline-block;
@@ -135,17 +135,14 @@ input[type="checkbox"], input[type="checkbox"]:link {
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: #0000;
 }
-input[type="checkbox"]:active,
 .UIKit-UISwitch:active {
 	box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-tintColor);
 	transition: box-shadow 0.5s 0.25s;
 }
-input[type="checkbox"]:checked,
 .UIKit-UISwitch:checked {
 	box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-onTintColor);
 	transition: box-shadow 0.25s;
 }
-input[type="checkbox"]::after,
 .UIKit-UISwitch::after {
 	display: inline-block;
 
@@ -172,25 +169,20 @@ input[type="checkbox"]::after,
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: #0000;
 }
-input[type="checkbox"]:active::after,
 .UIKit-UISwitch:active::after {
 	width: 33px;
 	transition: width 0.5s 0.25s;
 }
-input[type="checkbox"]:checked::after,
 .UIKit-UISwitch:checked::after {
 	left: 21px;
 	/* transition: width 0.25s, left 0.25s; */
 	transition: width 0.25s var(--UIKit-UISwitch-timing), left 0.25s var(--UIKit-UISwitch-timing);
 }
-input[type="checkbox"]:active:checked::after,
 .UIKit-UISwitch:active:checked::after {
 	width: 33px;
 	left: 15.5px;
 	transition: width 0.25s 0.5s, left 0.25s 0.5s;
 }
-input[type="search"],
-input[type="search"]:link,
 .UIKit-UISearchBar,
 .UIKit-UISearchBar:link {
 	-webkit-appearance:  none;
