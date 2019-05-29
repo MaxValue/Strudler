@@ -138,7 +138,7 @@ input[type="checkbox"], input[type="checkbox"]:link {
 input[type="checkbox"]:active,
 .UIKit-UISwitch:active {
 	box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-tintColor);
-	transition: box-shadow 0.25s 0.5s;
+	transition: box-shadow 0.5s 0.25s;
 }
 input[type="checkbox"]:checked,
 .UIKit-UISwitch:checked {
@@ -175,7 +175,7 @@ input[type="checkbox"]::after,
 input[type="checkbox"]:active::after,
 .UIKit-UISwitch:active::after {
 	width: 33px;
-	transition: width 0.25s 0.5s;
+	transition: width 0.5s 0.25s;
 }
 input[type="checkbox"]:checked::after,
 .UIKit-UISwitch:checked::after {
