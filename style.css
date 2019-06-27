@@ -221,13 +221,11 @@ body {
 	line-height: 2.385em; /*31px*/
 	color: var(--SystemGrayColor);
 }
-.table-grouped>section>*, .table-cell {
-	-webkit-appearance:  none;
-	appearance: none;
+.table-grouped>section>div, .table-cell {
 	display: flex;
 
 	width: auto;
-	height: 44px;
+	min-height: 44px;
 
 	margin-left: 1em; /*16px*/
 
@@ -240,21 +238,19 @@ body {
 	padding: 0 1em 0 0;
 
 	font-size: 1em; /*16px*/
-	line-height: 44px;
 	color: var(--SystemBlackColor);
 	user-select: none;
-	text-decoration: none;
 
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: space-between;
 }
-.table-grouped>section>*:focus, .table-cell:focus {
+.table-grouped>section>div:focus, .table-cell:focus {
 	/* should be closest to #d9d9d9 */
 	box-shadow: -1em 0 var(--SystemLightMidGrayColor);
 	background-color: var(--SystemLightMidGrayColor);
 }
-.table-grouped>section>*+*,.table-cell+.table-cell {
+.table-grouped>section>div+div,.table-cell+.table-cell {
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: var(--SystemMidGrayColor);
