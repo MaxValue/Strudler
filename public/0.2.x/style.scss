@@ -1,0 +1,367 @@
+:root {
+	/* Timing Functions */
+	--easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+
+	/* System Colors */
+	--SystemRed: #FF3B30;
+	--SystemOrange: #FF9500;
+	--SystemYellow: #FFCC00;
+	--SystemGreen: #4CD964;
+	--SystemTeal: #5AC8FA;
+	--SystemBlue: #007AFF;
+	--SystemPurple: #5856D6;
+	--SystemPink: #FF2D55;
+	--SystemWhiteColor: #FFFFFF;
+	--SystemExtraLightGrayColor: #EFEFF4;
+	--SystemLightGrayColor: #E5E5EA;
+	--SystemLightMidGrayColor: #D1D1D6;
+	--SystemMidGrayColor: #C7C7CC;
+	--SystemGrayColor: #8E8E93;
+	--SystemBlackColor: #000000;
+	--SystemExtraLightGrayTintColor: #0A0A780D; /* rgba(10,10,120,0.05); */
+	--SystemLightGrayTintColor: #19196412; /* rgba(25,25,100,0.07); */
+	--SystemLightMidGrayTintColor: #1919642E; /* rgba(25,25,100,0.18); */
+	--SystemMidGrayTintColor: #00001938; /* rgba(0,0,25,0.22); */
+	--SystemGrayTintColor:	#04040F73; /* rgba(4,4,15,0.45); */
+
+	/* Default Colors */
+	--backgroundColor: var(--SystemExtraLightGrayColor);
+	--accentColor: var(--SystemBlue);
+
+	/* UISegmentedControl */
+	--UIKit-UISegmentedControl-tintColor: var(--accentColor);
+
+	/* UITabBar */
+	--UIKit-UITabBar-tintColor: var(--accentColor);
+	--UIKit-UITabBar-inactiveColor: #A1A1A1;
+	--UIKit-UITabBar-barTintColor: #F7F7F7;
+
+	/* UISwitch */
+	--UIKit-UISwitch-onTintColor: var(--SystemGreen);
+	--UIKit-UISwitch-tintColor: var(--SystemLightGrayColor);
+	--UIKit-UISwitch-thumbTintColor: var(--SystemWhiteColor);
+	--UIKit-UISwitch-timing: var(--easeOutBack);
+}
+
+* {
+	overscroll-behavior: none;
+}
+
+body {
+	font-family: system-ui, 'Roboto', sans-serif;
+	background-color: var(--backgroundColor);
+	margin: 0;
+	
+	.UIKit-UISegmentedControl {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		width: auto;
+		height: 28px;
+		margin: 8px 22px 8px 22px;
+
+		border: 1px solid var(--UIKit-UISegmentedControl-tintColor);
+		border-radius: 4px;
+		background-color: var(--SystemWhiteColor);
+
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-tap-highlight-color: #0000;
+		
+		input {
+			display: none;
+		}
+		
+		label {
+			flex: 1;
+			overflow: hidden;
+			
+			div {
+				height: 28px;
+
+				background-color: var(--SystemWhiteColor);
+
+				border-width: 0 0.5px 0 0.5px;
+				border-color: var(--UIKit-UISegmentedControl-tintColor);
+				border-style: solid;
+				outline: none;
+
+				line-height: 28px;
+				font-size: 13px;
+				text-align: center;
+				color: var(--UIKit-UISegmentedControl-tintColor);
+	
+				&:hover,
+				&:active,
+				&:focus {
+					background-color: #d6eaff;
+					transition: background-color 0.125s;
+					/* animation: 0.125s linear 0s 1 both hover; */
+				}
+			}
+			
+			&:first-of-type div {
+				border-left-style: none;
+				border-radius: 3px 0 0 3px;/*how can we avoid this?*/
+			}
+
+			&:last-of-type div {
+				border-right-style: none;
+				border-radius: 0 3px 3px 0;/*how can we avoid this?*/
+			}
+
+			input:checked + div {
+				background-color: var(--UIKit-UISegmentedControl-tintColor);
+				color: var(--SystemWhiteColor);
+				transition: background-color 0.125s, color 0.125s;
+				/* animation: 0.125s linear 0s 1 both highlight; */
+			}
+
+		}
+	}
+
+	.UIKit-UISwitch {
+		-webkit-appearance:  none;
+		appearance: none;
+		display: inline-block;
+
+		margin: 0;
+
+		/* 19px+30px +2width             29px  height  */
+		width: 51px;
+		height: 31px;
+
+		transition: box-shadow 0.25s;
+
+		outline: none;
+
+		border: none;
+
+		box-shadow: inset 0 0 0 2px var(--UIKit-UISwitch-tintColor);
+
+		border-radius: 31px;
+
+		background-color: var(--SystemWhiteColor);
+
+		user-select: none;
+		-webkit-user-select: none;
+		-webkit-tap-highlight-color: #0000;
+		
+		&:active {
+			box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-tintColor);
+			transition: box-shadow 0.5s 0.25s;
+		}
+		
+		&:checked {
+			box-shadow: inset 0 0 0 31px var(--UIKit-UISwitch-onTintColor);
+			transition: box-shadow 0.25s;
+		}
+		
+		&::after {
+			display: inline-block;
+
+			position: relative;
+			top: 1.25px;
+			left: 1.5px;
+
+			width: 27.5px;
+			height: 27.5px;
+
+			transition: width 0.25s var(--UIKit-UISwitch-timing), left 0.25s var(--UIKit-UISwitch-timing);
+
+			border: 0.5px solid rgba(0,0,0,0.04);
+			border-radius: 13.75px;
+
+			filter: drop-shadow(0px 3px 4px rgba(0, 0, 0, 0.15)) drop-shadow(0px 3px 0.5px rgba(0, 0, 0, 0.06));
+
+			background-color: var(--UIKit-UISwitch-thumbTintColor);
+			background-clip: padding-box;
+
+			content: "";
+
+			user-select: none;
+			-webkit-user-select: none;
+			-webkit-tap-highlight-color: #0000;
+		}
+		
+		&:active::after {
+			width: 33px;
+			transition: width 0.5s 0.25s;
+		}
+
+		&:checked::after {
+			left: 21px;
+			/* transition: width 0.25s, left 0.25s; */
+			transition: width 0.25s var(--UIKit-UISwitch-timing), left 0.25s var(--UIKit-UISwitch-timing);
+		}
+
+		&:active:checked::after {
+			width: 33px;
+			left: 15.5px;
+			transition: width 0.25s 0.5s, left 0.25s 0.5s;
+		}
+	}
+
+	.UIKit-UISearchBar {
+		-webkit-appearance:  none;
+		appearance: none;
+		display: inline-block;
+
+		margin: 0 1em 0 1em;
+
+		width: auto;
+		height: 36px;
+
+		border:  none;
+		border-radius: 10px;
+
+		background-color: rgba(142, 142, 147, 0.24);
+
+		padding: 0 30px 0 8px;
+
+		color: var(--SystemGrayColor);
+		font-size: 17px;
+		line-height: 36px;
+		caret-color: var(--SystemBlue);
+		/* text-indent: 30px; */
+	}
+
+	.table-grouped {
+		section {
+			border-top: 1px solid var(--SystemMidGrayColor);
+			border-bottom: 1px solid var(--SystemMidGrayColor);
+			background-color: var(--SystemWhiteColor);
+		
+			// div, .table-cell {
+			div {
+				display: flex;
+
+				width: auto;
+				min-height: 44px;
+
+				margin-left: 1em; /*16px*/
+
+				outline: none;
+
+				border: none;
+
+				background-color: #FFFF;
+
+				padding: 0 1em 0 0;
+
+				font-size: 1em; /*16px*/
+				color: var(--SystemBlackColor);
+				user-select: none;
+
+				flex-wrap: nowrap;
+				align-items: center;
+				justify-content: space-between;
+			
+				// &:focus, .table-cell:focus {
+				&:focus {
+					/* should be closest to #d9d9d9 */
+					box-shadow: -1em 0 var(--SystemLightMidGrayColor);
+					background-color: var(--SystemLightMidGrayColor);
+				}
+
+				// &+div,.table-cell+.table-cell {
+				&+div {
+					border-top-width: 1px;
+					border-top-style: solid;
+					border-top-color: var(--SystemMidGrayColor);
+
+					/* --img-src-percent: 2.98%; */
+					--img-src-percent: 4.4%;
+				/* 	border-image-source: linear-gradient(to right, #0000, #0000 var(--img-src-percent, 100%), var(--SystemMidGrayColor) var(--img-src-percent, 100%), var(--SystemMidGrayColor));
+					border-image-slice: 1 0 0 0; */
+				}
+			}
+
+			&+footer {
+				padding-left: 1.231em;
+				margin-top: 10px;
+				font-size:13px;
+				line-height: 13px;
+				color: var(--SystemGrayColor);
+			}
+		}
+
+		header {
+			text-transform: uppercase;
+			padding-left: 1.231em; /*16px*/
+			font-size: 0.812em; /*13px*/
+			line-height: 2.385em; /*31px*/
+			color: var(--SystemGrayColor);
+		}
+	}
+
+	#tabs {
+		display: flex;
+
+		width: 100%;
+		height: 49px;
+		position: fixed;
+		left: 0;
+		bottom: 0;
+
+		border-top: 0.5px solid #0004;
+		background-color: var(--UIKit-UITabBar-barTintColor);
+
+		align-items: center;
+		justify-content: space-around;
+		overflow: hidden;
+		user-select: none;
+		-webkit-tap-highlight-color: #0000;
+		
+		label {
+			flex: 1;
+
+			display: flex;
+
+			height: 49px;
+
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			overflow: hidden;
+			
+			input {
+				outline: none;
+				display: none;
+		
+				&:checked + div {
+					background-color: var(--UIKit-UITabBar-tintColor);
+				}
+				
+				&:checked ~ span {
+					color: var(--UIKit-UITabBar-tintColor);
+				}
+			}
+			
+			div {
+				--src: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12"><path d="M6,8.8 9.71,11.5 8.29,7.14 12,4.5H7.45L6,0 4.55,4.5H0L3.71,7.14 2.29,11.5Z"/></svg>');
+
+				display: block;
+
+				margin: 8px 0px;
+
+				height: 22px;
+				width: 22px;
+
+				background-color: var(--UIKit-UITabBar-inactiveColor);
+
+				mask-image: var(--src);
+				-webkit-mask-image: var(--src);
+				mask-size: contain;
+				-webkit-mask-size: contain;
+			}
+
+			span {
+				font-size: 9px;
+				color: var(--UIKit-UITabBar-inactiveColor);
+			}
+		}
+	}
+}
+

@@ -1,0 +1,28 @@
+stages:
+  - compile
+  - deploy
+
+scss-job:
+  stage: compile
+  image: node:lts
+  script:
+    - yarn global add sass
+    - mkdir -p public/latest
+    - cp `find public -regextype egrep -type d -iregex 'public/[0-9]+\..*' | sort --version-sort | tail -1`/style.scss public/latest/style.scss
+    - sass --style=compressed public/latest/style.scss public/latest/style.min.css
+    - for major in $(find public -regextype egrep -type d -iregex 'public/[0-9]+\.[0-9]+.x' |  awk -F '.' '{print substr($1,8)}' | sort -n | uniq); do mkdir -p "public/$major.x.x"; cp public/$(find public -regextype egrep -type d -iregex "public/$major\.[0-9]+.x" | awk -F '/' '{print $2}' | sort --version-sort | tail -1)/style.scss "public/$major.x.x/style.scss"; sass --style=compressed "public/$major.x.x/style.scss" "public/$major.x.x/style.min.css"; done
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
+
+pages:
+  stage: deploy
+  script:
+    - echo 'Placeholder'
+  artifacts:
+    paths:
+    - public
+  only:
+  - main
