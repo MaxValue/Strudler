@@ -7,13 +7,15 @@ scss-job:
   image: node:lts
   script:
     - yarn global add sass
-    - mkdir -p public/latest
-    - cp `find public -regextype egrep -type d -iregex 'public/[0-9]+\..*' | sort --version-sort | tail -1`/style.scss public/latest/style.scss
-    - sass --style=compressed public/latest/style.scss public/latest/style.min.css
-    - for major in $(find public -regextype egrep -type d -iregex 'public/[0-9]+\.[0-9]+.x' |  awk -F '.' '{print substr($1,8)}' | sort -n | uniq); do mkdir -p "public/$major.x.x"; cp public/$(find public -regextype egrep -type d -iregex "public/$major\.[0-9]+.x" | awk -F '/' '{print $2}' | sort --version-sort | tail -1)/style.scss "public/$major.x.x/style.scss"; sass --style=compressed "public/$major.x.x/style.scss" "public/$major.x.x/style.min.css"; done
+    - mkdir -p versions/latest
+    - cp `find versions -regextype egrep -type d -iregex 'versions/[0-9]+\..*' | sort --version-sort | tail -1`/style.scss versions/latest/style.scss
+    - sass --style=compressed versions/latest/style.scss versions/latest/style.min.css
+    - for major in $(find versions -regextype egrep -type d -iregex 'versions/[0-9]+\.[0-9]+.x' |  awk -F '.' '{print substr($1,8)}' | sort -n | uniq); do mkdir -p "versions/$major.x.x"; cp versions/$(find versions -regextype egrep -type d -iregex "versions/$major\.[0-9]+.x" | awk -F '/' '{print $2}' | sort --version-sort | tail -1)/style.scss "versions/$major.x.x/style.scss"; sass --style=compressed "versions/$major.x.x/style.scss" "versions/$major.x.x/style.min.css"; done
+    - cp index.html versions/index.html
+    - cp star.svg versions/star.svg
   artifacts:
     paths:
-    - public
+    - versions
   only:
   - master
 
@@ -23,6 +25,6 @@ pages:
     - echo 'Placeholder'
   artifacts:
     paths:
-    - public
+    - versions
   only:
   - master
