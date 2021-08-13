@@ -109,3 +109,6 @@ Session.vim
 
 # rendered CSS files
 *.css
+
+# ignore symlink for latest folder
+versions/latest
